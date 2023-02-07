@@ -6,5 +6,13 @@ import {Component} from '@angular/core';
 })
 
 export class TopComponent {
+  public text = '';
+  public updatedText = '';
 
+  public updateText(event: string) {
+    this.text = event;
+  }
+  public onConvertButtonClick() {
+    this.updatedText = this.text;
+  }
 }

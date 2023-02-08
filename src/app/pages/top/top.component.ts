@@ -18,6 +18,5 @@ export class TopComponent {
   }
   public onConvertButtonClick() {
     this.updatedText = this.hieroglyphConvertService.toHieroglyph(this.text);
-    // this.updatedText = this.text;
   }
 }

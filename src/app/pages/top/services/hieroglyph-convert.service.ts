@@ -35,4 +35,13 @@ export class HieroglyphConvertService {
     const charList = japanese.toLowerCase().split('');
     return charList.map(c => this.table[c] || c).join('');
   }
+
+  public toAlphabet(hieroglyph: string): string {
+    const hieroglyphAlphabetList = Object.entries(this.table);
+    const replacedText = hieroglyph.replace(new RegExp(this.table['x'], 'g'),'x');
+    return Array.from(replacedText).map(c => {
+      const keyValueList = hieroglyphAlphabetList.filter(([, value]) => value === c);
+      return keyValueList.length > 0 ? keyValueList[0][0] : c;
+    }).join('');
+  }
 }

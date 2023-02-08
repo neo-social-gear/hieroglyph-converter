@@ -1,0 +1,6 @@
+<div>
+  <label *ngIf="!!labelText" for="comment" class="block text-sm font-medium text-gray-700">{{labelText}}</label>
+  <div class="mt-1">
+    <textarea [(ngModel)]="text" (ngModelChange)="changeText($event)" [disabled]="isDisabled" rows="4" name="comment" id="comment" class="block w-full rounded-md border-gray-300 shadow-sm shadow-gray-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"></textarea>
+  </div>
+</div>

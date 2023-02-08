@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "nx serve --servePath hieroglyph-converter",
     "build": "nx build",
     "test": "nx test",
     "deploy": "nx deploy --base-url=/hieroglyph-converter/ --cname=neo-social-gear.github.io",

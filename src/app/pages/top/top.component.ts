@@ -9,6 +9,7 @@ import {HieroglyphConvertService} from "./services/hieroglyph-convert.service";
 export class TopComponent {
   public text = '';
   public updatedText = '';
+  private convertType = 'hieroglyph';
 
   constructor(private readonly hieroglyphConvertService: HieroglyphConvertService) {
   }
@@ -17,6 +18,14 @@ export class TopComponent {
     this.text = event;
   }
   public onConvertButtonClick() {
+    if (this.convertType === 'alphabet') {
+      this.updatedText = this.hieroglyphConvertService.toAlphabet(this.text);
+      return;
+    }
     this.updatedText = this.hieroglyphConvertService.toHieroglyph(this.text);
+  }
+
+  public onChangeType(event: Event) {
+    this.convertType = (event.target as HTMLInputElement).id;
   }
 }

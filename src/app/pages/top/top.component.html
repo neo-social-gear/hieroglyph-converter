@@ -1,9 +1,33 @@
-<div class="grid grid-cols-2 gap-x-4">
+<div>
   <div>
-    <hieroglyph-converter-text-area [isDisabled]="false" [text]="text" labelText="変換したい文字を入力してください。" (updatedText)="updateText($event)"></hieroglyph-converter-text-area>
-    <button type="button" class="mt-2 flex inline-flex items-center rounded-full border border-transparent bg-indigo-600 px-5 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" (click)="onConvertButtonClick()">変換！</button>
+    <label class="text-base font-medium text-gray-900">変換タイプ</label>
+    <fieldset class="mt-4" (change)="onChangeType($event)">
+      <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+        <div class="flex items-center">
+          <input id="hieroglyph" name="notification-method" type="radio" checked class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+          <label for="hieroglyph" class="ml-3 block text-sm font-medium text-gray-700">to Hieroglyph.</label>
+        </div>
+
+        <div class="flex items-center">
+          <input id="alphabet" name="notification-method" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+          <label for="alphabet" class="ml-3 block text-sm font-medium text-gray-700">to Alphabet.</label>
+        </div>
+
+      </div>
+    </fieldset>
   </div>
-  <div>
-    <hieroglyph-converter-text-area [isDisabled]="true" [text]="updatedText" labelText="変換後の文字が表示されます。"></hieroglyph-converter-text-area>
+  <div class="grid grid-cols-2 gap-x-4 mt-8">
+    <div>
+      <hieroglyph-converter-text-area [isDisabled]="false" [text]="text" labelText="変換したい文字を入力してください。"
+                                      (updatedText)="updateText($event)"></hieroglyph-converter-text-area>
+      <button type="button"
+              class="mt-2 flex inline-flex items-center rounded-full border border-transparent bg-indigo-600 px-5 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              (click)="onConvertButtonClick()">変換！
+      </button>
+    </div>
+    <div>
+      <hieroglyph-converter-text-area [isDisabled]="true" [text]="updatedText"
+                                      labelText="変換後の文字が表示されます。"></hieroglyph-converter-text-area>
+    </div>
   </div>
 </div>

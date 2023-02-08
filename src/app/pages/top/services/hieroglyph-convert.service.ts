@@ -31,7 +31,6 @@ export class HieroglyphConvertService {
     z:'𓊃'
   } as const;
 
-
   public toHieroglyph(japanese: string): string {
     const charList = japanese.toLowerCase().split('');
     return charList.map(c => this.table[c] || c).join('');
